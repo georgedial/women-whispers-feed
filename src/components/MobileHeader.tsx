@@ -5,7 +5,7 @@ const MobileHeader = () => {
   return (
     <header className="flex items-center justify-between p-4 pt-12">
       <Button variant="ghost" size="icon">
-        <Menu className="h-6 w-6" />
+        <Menu className="h-8 w-8" />
       </Button>
       
       <h1 className="text-2xl font-bold gradient-text">
@@ -13,7 +13,7 @@ const MobileHeader = () => {
       </h1>
       
       <Button variant="ghost" size="icon">
-        <Search className="h-6 w-6" />
+        <Search className="h-8 w-8" />
       </Button>
     </header>
   );
