@@ -1,11 +1,18 @@
 import { ArrowLeft, Plus, Calendar, TrendingUp, Edit3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BottomNavigation from "@/components/BottomNavigation";
 
 const CarePage = () => {
   const navigate = useNavigate();
+  const [isSymptomDialogOpen, setIsSymptomDialogOpen] = useState(false);
+  const [isNoteDialogOpen, setIsNoteDialogOpen] = useState(false);
   
   const [symptoms] = useState([
     {
@@ -150,20 +157,92 @@ const CarePage = () => {
         <section>
           <h3 className="text-xl font-semibold mb-4">Quick actions</h3>
           <div className="grid grid-cols-2 gap-3">
-            <Button 
-              variant="outline" 
-              className="h-20 flex flex-col items-center justify-center space-y-2 rounded-2xl bg-background/60 backdrop-blur-sm border-border/50"
-            >
-              <Plus className="h-6 w-6" />
-              <span className="text-sm">Add symptom</span>
-            </Button>
-            <Button 
-              variant="outline" 
-              className="h-20 flex flex-col items-center justify-center space-y-2 rounded-2xl bg-background/60 backdrop-blur-sm border-border/50"
-            >
-              <Edit3 className="h-6 w-6" />
-              <span className="text-sm">Add note</span>
-            </Button>
+            <Dialog open={isSymptomDialogOpen} onOpenChange={setIsSymptomDialogOpen}>
+              <DialogTrigger asChild>
+                <Button 
+                  variant="outline" 
+                  className="h-20 flex flex-col items-center justify-center space-y-2 rounded-2xl bg-background/60 backdrop-blur-sm border-border/50"
+                >
+                  <Plus className="h-6 w-6" />
+                  <span className="text-sm">Add symptom</span>
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="mx-4 rounded-2xl">
+                <DialogHeader>
+                  <DialogTitle>Add New Symptom</DialogTitle>
+                </DialogHeader>
+                <div className="space-y-4 pt-4">
+                  <div>
+                    <Label htmlFor="symptom-name">Symptom Name</Label>
+                    <Input id="symptom-name" placeholder="e.g., Headache, Fatigue" />
+                  </div>
+                  <div>
+                    <Label htmlFor="severity">Severity</Label>
+                    <Select>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select severity" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="mild">Mild</SelectItem>
+                        <SelectItem value="moderate">Moderate</SelectItem>
+                        <SelectItem value="severe">Severe</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="symptom-notes">Notes (Optional)</Label>
+                    <Textarea id="symptom-notes" placeholder="Any additional details..." />
+                  </div>
+                  <div className="flex space-x-2 pt-4">
+                    <Button variant="outline" className="flex-1" onClick={() => setIsSymptomDialogOpen(false)}>
+                      Cancel
+                    </Button>
+                    <Button className="flex-1" onClick={() => setIsSymptomDialogOpen(false)}>
+                      Add Symptom
+                    </Button>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
+
+            <Dialog open={isNoteDialogOpen} onOpenChange={setIsNoteDialogOpen}>
+              <DialogTrigger asChild>
+                <Button 
+                  variant="outline" 
+                  className="h-20 flex flex-col items-center justify-center space-y-2 rounded-2xl bg-background/60 backdrop-blur-sm border-border/50"
+                >
+                  <Edit3 className="h-6 w-6" />
+                  <span className="text-sm">Add note</span>
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="mx-4 rounded-2xl">
+                <DialogHeader>
+                  <DialogTitle>Add New Note</DialogTitle>
+                </DialogHeader>
+                <div className="space-y-4 pt-4">
+                  <div>
+                    <Label htmlFor="note-title">Title</Label>
+                    <Input id="note-title" placeholder="e.g., Morning routine, Doctor visit" />
+                  </div>
+                  <div>
+                    <Label htmlFor="note-content">Note</Label>
+                    <Textarea 
+                      id="note-content" 
+                      placeholder="Write your note here..." 
+                      className="min-h-[100px]"
+                    />
+                  </div>
+                  <div className="flex space-x-2 pt-4">
+                    <Button variant="outline" className="flex-1" onClick={() => setIsNoteDialogOpen(false)}>
+                      Cancel
+                    </Button>
+                    <Button className="flex-1" onClick={() => setIsNoteDialogOpen(false)}>
+                      Save Note
+                    </Button>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </section>
 
