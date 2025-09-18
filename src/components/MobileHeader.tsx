@@ -1,7 +1,11 @@
 import { Menu, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const MobileHeader = () => {
+interface MobileHeaderProps {
+  title?: string;
+}
+
+const MobileHeader = ({ title = "Diane Health" }: MobileHeaderProps) => {
   return (
     <header className="flex items-center justify-between p-4 pt-12">
       <Button variant="ghost" size="icon">
@@ -9,7 +13,7 @@ const MobileHeader = () => {
       </Button>
       
       <h1 className="text-4xl font-bold gradient-text">
-        Diane Health
+        {title}
       </h1>
       
       <Button variant="ghost" size="icon">
