@@ -167,7 +167,7 @@ const CarePage = () => {
                   <span className="text-sm">Add symptom</span>
                 </Button>
               </DialogTrigger>
-              <DialogContent className="ml-6 mr-2 rounded-2xl w-[calc(100vw-2rem)] max-w-lg">
+              <DialogContent className="mx-4 rounded-2xl w-[calc(100vw-2rem)] max-w-lg">
                 <DialogHeader>
                   <DialogTitle>Add New Symptom</DialogTitle>
                 </DialogHeader>
@@ -215,7 +215,7 @@ const CarePage = () => {
                   <span className="text-sm">Add note</span>
                 </Button>
               </DialogTrigger>
-              <DialogContent className="ml-6 mr-2 rounded-2xl w-[calc(100vw-2rem)] max-w-lg">
+              <DialogContent className="mx-4 rounded-2xl w-[calc(100vw-2rem)] max-w-lg">
                 <DialogHeader>
                   <DialogTitle>Add New Note</DialogTitle>
                 </DialogHeader>
