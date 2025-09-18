@@ -1,12 +1,13 @@
 import { ArrowLeft, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import BottomNavigation from "@/components/BottomNavigation";
 
 const ChatPage = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([
     {
@@ -17,6 +18,21 @@ const ChatPage = () => {
       isAI: true
     }
   ]);
+
+  useEffect(() => {
+    const topic = searchParams.get('topic');
+    if (topic) {
+      // Start conversation with topic-specific message
+      const aiMessage = {
+        id: Date.now(),
+        sender: "Dr.Diane",
+        text: `What question do you have about ${topic}?`,
+        time: "Now",
+        isAI: true
+      };
+      setMessages(prev => [...prev, aiMessage]);
+    }
+  }, [searchParams]);
 
   const handleSendMessage = () => {
     if (message.trim()) {

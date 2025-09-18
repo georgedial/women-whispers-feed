@@ -190,7 +190,10 @@ const ArticlePage = () => {
                 <Clock className="h-4 w-4" />
                 <span>{article.readTime} read</span>
               </div>
-              <div className="flex items-center space-x-1">
+              <div 
+                className="flex items-center space-x-1 cursor-pointer hover:text-primary"
+                onClick={() => navigate(`/chat?topic=${encodeURIComponent(article.title)}`)}
+              >
                 <MessageCircle className="h-4 w-4" />
                 <span>Chat about this</span>
               </div>
@@ -216,7 +219,10 @@ const ArticlePage = () => {
               <Heart className="h-4 w-4 mr-2" />
               Save Article
             </Button>
-            <Button className="flex-1">
+            <Button 
+              className="flex-1"
+              onClick={() => navigate(`/chat?topic=${encodeURIComponent(article.title)}`)}
+            >
               <MessageCircle className="h-4 w-4 mr-2" />
               Chat About This
             </Button>
