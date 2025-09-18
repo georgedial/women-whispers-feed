@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BottomNavigation from "@/components/BottomNavigation";
+import SideNavigation from "@/components/SideNavigation";
 
 const CarePage = () => {
   const navigate = useNavigate();
@@ -57,14 +58,15 @@ const CarePage = () => {
 
   return (
     <div className="mobile-container flex flex-col h-screen bg-gradient-to-br from-primary/5 to-secondary/5">
+      <SideNavigation currentPage="care" />
       {/* Header */}
-      <header className="flex items-center p-4 pt-12 bg-background/80 backdrop-blur-sm">
-        <Button variant="ghost" size="icon" onClick={() => navigate('/')}>
+      <header className="flex items-center responsive-padding pt-4 md:pt-6 lg:pt-8 bg-background/80 backdrop-blur-sm md:ml-56">
+        <Button variant="ghost" size="icon" onClick={() => navigate('/')} className="md:hidden">
           <ArrowLeft className="h-6 w-6" />
         </Button>
         
         <div className="flex-1 text-center">
-          <h1 className="text-lg font-semibold">Care</h1>
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold">Care</h1>
         </div>
         
         <Button variant="ghost" size="icon">
@@ -73,35 +75,35 @@ const CarePage = () => {
       </header>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-6">
+      <div className="flex-1 overflow-y-auto responsive-padding space-y-6 md:ml-56">
         {/* Welcome Section */}
-        <section className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl p-6">
-          <h2 className="text-2xl font-bold text-foreground mb-2">
+        <section className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl p-4 md:p-6">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-2">
             Welcome to your care
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground responsive-text">
             A space to track all your symptoms, notes, and health information in one place.
           </p>
         </section>
 
         {/* Symptom Tracking */}
         <section>
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xl font-semibold">Symptom tracking</h3>
+          <div className="flex items-center justify-between mb-4 md:mb-6">
+            <h3 className="text-lg md:text-xl lg:text-2xl font-semibold">Symptom tracking</h3>
             <Button variant="ghost" size="sm" className="text-primary">
               <TrendingUp className="h-4 w-4 mr-1" />
               View all
             </Button>
           </div>
           
-          <div className="space-y-4">
+          <div className="responsive-grid space-y-4 md:space-y-0">
             {symptoms.map((symptom) => (
               <div
                 key={symptom.id}
-                className="bg-background/60 backdrop-blur-sm border border-border/50 rounded-2xl p-4"
+                className="bg-background/60 backdrop-blur-sm border border-border/50 rounded-2xl p-4 md:p-6"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <h4 className="font-semibold text-foreground">{symptom.name}</h4>
+                  <h4 className="font-semibold text-foreground responsive-text">{symptom.name}</h4>
                   <Button variant="ghost" size="sm">
                     <Edit3 className="h-4 w-4" />
                   </Button>
@@ -120,8 +122,8 @@ const CarePage = () => {
 
         {/* Notes Section */}
         <section>
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xl font-semibold">Recent notes</h3>
+          <div className="flex items-center justify-between mb-4 md:mb-6">
+            <h3 className="text-lg md:text-xl lg:text-2xl font-semibold">Recent notes</h3>
             <Button variant="ghost" size="sm" className="text-primary">
               <Calendar className="h-4 w-4 mr-1" />
               View all
@@ -155,8 +157,8 @@ const CarePage = () => {
 
         {/* Quick Actions */}
         <section>
-          <h3 className="text-xl font-semibold mb-4">Quick actions</h3>
-          <div className="grid grid-cols-2 gap-3">
+          <h3 className="text-lg md:text-xl lg:text-2xl font-semibold mb-4 md:mb-6">Quick actions</h3>
+          <div className="responsive-grid">{/* Remove gap-3 as it's included in responsive-grid */}
             <Dialog open={isSymptomDialogOpen} onOpenChange={setIsSymptomDialogOpen}>
               <DialogTrigger asChild>
                 <Button 

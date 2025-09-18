@@ -127,10 +127,27 @@
   }
 
   .mobile-container {
-    max-width: 390px;
     margin: 0 auto;
     min-height: 100vh;
     background: hsl(var(--background));
+    /* Mobile first - full width */
+    width: 100%;
+    /* Tablet - constrained width */
+    @apply md:max-w-2xl;
+    /* Desktop - wider layout */
+    @apply lg:max-w-4xl xl:max-w-6xl;
+  }
+
+  .responsive-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+  }
+
+  .responsive-padding {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+
+  .responsive-text {
+    @apply text-sm md:text-base lg:text-lg;
   }
 
   .trend-tag {

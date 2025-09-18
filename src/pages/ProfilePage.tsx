@@ -7,13 +7,15 @@ import { Badge } from "@/components/ui/badge";
 import { Bell, Shield, Moon, Globe, Heart, Settings, Edit, ChevronRight, User, Mail, Phone, MapPin } from "lucide-react";
 import BottomNavigation from "@/components/BottomNavigation";
 import MobileHeader from "@/components/MobileHeader";
+import SideNavigation from "@/components/SideNavigation";
 
 const ProfilePage = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background mobile-container">
+      <SideNavigation currentPage="profile" />
       <MobileHeader title="Profile" />
       
-      <main className="flex-1 p-4 pb-24 space-y-6">
+      <main className="flex-1 responsive-padding pb-24 md:pb-8 space-y-6 md:ml-56">
         {/* User Info Card */}
         <Card>
           <CardContent className="p-6">
@@ -65,25 +67,25 @@ const ProfilePage = () => {
         {/* Health Stats */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-lg">Health Journey</CardTitle>
+            <CardTitle className="text-lg md:text-xl">Health Journey</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="text-center p-4 bg-muted/50 rounded-lg">
-                <div className="text-2xl font-semibold text-primary">24</div>
-                <p className="text-xs text-muted-foreground">Articles Read</p>
+            <div className="responsive-grid">
+              <div className="text-center p-4 md:p-6 bg-muted/50 rounded-lg">
+                <div className="text-xl md:text-2xl font-semibold text-primary">24</div>
+                <p className="text-xs md:text-sm text-muted-foreground">Articles Read</p>
               </div>
-              <div className="text-center p-4 bg-muted/50 rounded-lg">
-                <div className="text-2xl font-semibold text-primary">12</div>
-                <p className="text-xs text-muted-foreground">Chat Sessions</p>
+              <div className="text-center p-4 md:p-6 bg-muted/50 rounded-lg">
+                <div className="text-xl md:text-2xl font-semibold text-primary">12</div>
+                <p className="text-xs md:text-sm text-muted-foreground">Chat Sessions</p>
               </div>
-              <div className="text-center p-4 bg-muted/50 rounded-lg">
-                <div className="text-2xl font-semibold text-primary">8</div>
-                <p className="text-xs text-muted-foreground">Care Plans</p>
+              <div className="text-center p-4 md:p-6 bg-muted/50 rounded-lg">
+                <div className="text-xl md:text-2xl font-semibold text-primary">8</div>
+                <p className="text-xs md:text-sm text-muted-foreground">Care Plans</p>
               </div>
-              <div className="text-center p-4 bg-muted/50 rounded-lg">
-                <div className="text-2xl font-semibold text-primary">95%</div>
-                <p className="text-xs text-muted-foreground">Goal Progress</p>
+              <div className="text-center p-4 md:p-6 bg-muted/50 rounded-lg">
+                <div className="text-xl md:text-2xl font-semibold text-primary">95%</div>
+                <p className="text-xs md:text-sm text-muted-foreground">Goal Progress</p>
               </div>
             </div>
           </CardContent>
