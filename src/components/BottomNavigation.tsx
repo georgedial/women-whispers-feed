@@ -30,12 +30,12 @@ const BottomNavigation = ({ currentPage }: BottomNavigationProps) => {
             key={index}
             variant="ghost"
             onClick={() => navigate(item.path)}
-            className={`flex flex-col items-center space-y-1 py-4 px-4 ${
+            className={`flex flex-col items-center py-4 px-4 ${
               isActive(item) ? 'text-primary' : 'text-muted-foreground'
             }`}
           >
-            <item.icon className="h-20 w-20" />
-            <span className="text-xs">{item.label}</span>
+            <item.icon className="h-5 w-5" />
+            <span className="text-xs mt-1">{item.label}</span>
           </Button>
         ))}
       </div>
