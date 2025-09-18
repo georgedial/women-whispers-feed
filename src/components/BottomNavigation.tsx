@@ -1,4 +1,4 @@
-import { Home, MessageCircle, Heart, User } from "lucide-react";
+import { Home, MessageCircle, Compass, Heart, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -12,6 +12,7 @@ const BottomNavigation = ({ currentPage }: BottomNavigationProps) => {
   const navItems = [
     { icon: Home, label: "Home", path: "/", key: "home" },
     { icon: MessageCircle, label: "Chat", path: "/chat", key: "chat" },
+    { icon: Compass, label: "Discovery", path: "/discovery", key: "discovery" },
     { icon: Heart, label: "Care", path: "/care", key: "care" },
     { icon: User, label: "Profile", path: "/profile", key: "profile" }
   ];
