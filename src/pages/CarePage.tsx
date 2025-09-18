@@ -193,12 +193,12 @@ const CarePage = () => {
                     <Label htmlFor="symptom-notes">Notes (Optional)</Label>
                     <Textarea id="symptom-notes" placeholder="Any additional details..." />
                   </div>
-                  <div className="flex space-x-2 pt-4">
-                    <Button variant="outline" className="flex-1" onClick={() => setIsSymptomDialogOpen(false)}>
-                      Cancel
-                    </Button>
-                    <Button className="flex-1" onClick={() => setIsSymptomDialogOpen(false)}>
+                  <div className="flex flex-col space-y-3 pt-4">
+                    <Button className="w-full" onClick={() => setIsSymptomDialogOpen(false)}>
                       Add Symptom
+                    </Button>
+                    <Button variant="outline" className="w-full" onClick={() => setIsSymptomDialogOpen(false)}>
+                      Cancel
                     </Button>
                   </div>
                 </div>
@@ -232,12 +232,12 @@ const CarePage = () => {
                       className="min-h-[100px]"
                     />
                   </div>
-                  <div className="flex space-x-2 pt-4">
-                    <Button variant="outline" className="flex-1" onClick={() => setIsNoteDialogOpen(false)}>
-                      Cancel
-                    </Button>
-                    <Button className="flex-1" onClick={() => setIsNoteDialogOpen(false)}>
+                  <div className="flex flex-col space-y-3 pt-4">
+                    <Button className="w-full" onClick={() => setIsNoteDialogOpen(false)}>
                       Save Note
+                    </Button>
+                    <Button variant="outline" className="w-full" onClick={() => setIsNoteDialogOpen(false)}>
+                      Cancel
                     </Button>
                   </div>
                 </div>
