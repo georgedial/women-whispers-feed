@@ -1,0 +1,66 @@
+import { MessageCircle, Clock } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+
+const SuggestedSection = () => {
+  const suggestedArticles = [
+    {
+      title: "Understanding Your Menstrual Cycle",
+      category: "Women's Health",
+      readTime: "8 m",
+      image: "/api/placeholder/80/80"
+    },
+    {
+      title: "Postpartum Depression: Signs and Support",
+      category: "Mental Health",
+      readTime: "12 m",
+      image: "/api/placeholder/80/80"
+    },
+    {
+      title: "Nutrition During Pregnancy",
+      category: "Pregnancy",
+      readTime: "6 m",
+      image: "/api/placeholder/80/80"
+    }
+  ];
+
+  return (
+    <section className="px-4 py-6">
+      <h3 className="text-2xl font-bold mb-4">Suggested</h3>
+      
+      <div className="space-y-4">
+        {suggestedArticles.map((article, index) => (
+          <Card key={index} className="border-0 shadow-sm">
+            <CardContent className="p-4">
+              <div className="flex items-center space-x-4">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary-dark/20 rounded-2xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl"></div>
+                </div>
+                
+                <div className="flex-1 space-y-2">
+                  <h4 className="font-semibold text-lg leading-tight">
+                    {article.title}
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    {article.category}
+                  </p>
+                  <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                    <div className="flex items-center space-x-1">
+                      <Clock className="h-4 w-4" />
+                      <span>{article.readTime}</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <MessageCircle className="h-4 w-4" />
+                      <span>Chat</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default SuggestedSection;
