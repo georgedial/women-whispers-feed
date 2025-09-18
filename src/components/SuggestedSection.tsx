@@ -65,7 +65,13 @@ const SuggestedSection = () => {
                       <Clock className="h-4 w-4" />
                       <span>{article.readTime}</span>
                     </div>
-                    <div className="flex items-center space-x-1">
+                    <div 
+                      className="flex items-center space-x-1 cursor-pointer hover:text-primary transition-colors"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigate(`/chat?article=${encodeURIComponent(article.title)}`);
+                      }}
+                    >
                       <MessageCircle className="h-4 w-4" />
                       <span>Chat</span>
                     </div>
