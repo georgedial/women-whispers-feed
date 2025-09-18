@@ -8,7 +8,7 @@ const MobileHeader = () => {
         <Menu className="h-6 w-6" />
       </Button>
       
-      <h1 className="text-xl font-bold gradient-text">
+      <h1 className="text-2xl font-bold gradient-text">
         Diane Health
       </h1>
       
