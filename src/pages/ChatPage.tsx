@@ -59,7 +59,7 @@ const ChatPage = () => {
       {/* Chat Messages */}
       <div className="flex-1 p-4 space-y-4 overflow-y-auto">
         {messages.map((msg) => (
-          <div key={msg.id} className={`flex ${msg.isAI ? 'justify-start' : 'justify-end'}`}>
+          <div key={msg.id} className={`flex ${msg.isAI ? 'justify-start pl-4' : 'justify-end'}`}>
             <div className={`max-w-[85%] rounded-3xl p-4 ${
               msg.isAI 
                 ? 'bg-white border border-gray-100 shadow-sm' 
