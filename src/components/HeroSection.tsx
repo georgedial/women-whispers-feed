@@ -46,12 +46,14 @@ const HeroSection = () => {
   return (
     <section className="px-4 py-8 relative">
       <div className="space-y-4">
-        <h2 className="text-5xl font-bold leading-tight">
-          Your Health,
-        </h2>
-        <h2 className="text-5xl font-bold leading-tight gradient-text">
-          Your Knowledge
-        </h2>
+        <div className="space-y-1">
+          <h2 className="text-5xl font-bold leading-tight">
+            Your Health,
+          </h2>
+          <h2 className="text-5xl font-bold leading-tight gradient-text">
+            Your Knowledge
+          </h2>
+        </div>
         
         <p className="text-muted-foreground text-lg leading-relaxed">
           Welcome to Diane Health, empowering women with expert-backed health information, and guidance
