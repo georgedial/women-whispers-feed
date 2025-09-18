@@ -33,19 +33,19 @@ const SuggestedSection = () => {
   ];
 
   return (
-    <section className="responsive-padding py-3 md:py-6">
-      <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6">Suggested</h3>
+    <section className="px-4 py-3">
+      <h3 className="text-2xl font-bold mb-4">Suggested</h3>
       
-      <div className="responsive-grid space-y-4 md:space-y-0">
+      <div className="space-y-4">
         {suggestedArticles.map((article, index) => (
           <Card 
             key={index} 
             className="border-0 shadow-sm cursor-pointer hover:shadow-md transition-shadow"
             onClick={() => navigate(`/article/${article.id}`)}
           >
-            <CardContent className="p-4 md:p-6">
-              <div className="flex items-center space-x-4 md:flex-col md:space-x-0 md:space-y-4">
-                <div className="w-20 h-20 md:w-full md:h-48 rounded-2xl overflow-hidden">
+            <CardContent className="p-4">
+              <div className="flex items-center space-x-4">
+                <div className="w-20 h-20 rounded-2xl overflow-hidden">
                   <img 
                     src={article.image} 
                     alt={article.title}
@@ -53,14 +53,14 @@ const SuggestedSection = () => {
                   />
                 </div>
                 
-                <div className="flex-1 space-y-2 md:text-center">
-                  <h4 className="font-semibold responsive-text leading-tight">
+                <div className="flex-1 space-y-2">
+                  <h4 className="font-semibold text-lg leading-tight">
                     {article.title}
                   </h4>
                   <p className="text-sm text-muted-foreground">
                     {article.category}
                   </p>
-                  <div className="flex items-center space-x-4 text-sm text-muted-foreground md:justify-center">
+                  <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                     <div className="flex items-center space-x-1">
                       <Clock className="h-4 w-4" />
                       <span>{article.readTime}</span>

@@ -4,7 +4,6 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BottomNavigation from "@/components/BottomNavigation";
-import SideNavigation from "@/components/SideNavigation";
 
 const DiscoveryPage = () => {
   const navigate = useNavigate();
@@ -53,22 +52,21 @@ const DiscoveryPage = () => {
 
   return (
     <div className="mobile-container flex flex-col h-screen bg-gradient-to-br from-primary/5 to-secondary/5">
-      <SideNavigation currentPage="discovery" />
       {/* Header */}
-      <header className="flex items-center responsive-padding pt-4 md:pt-6 lg:pt-8 bg-background/80 backdrop-blur-sm border-b border-border/50 md:ml-56">
-        <Button variant="ghost" size="icon" onClick={() => navigate('/')} className="md:hidden">
+      <header className="flex items-center p-4 pt-12 bg-background/80 backdrop-blur-sm border-b border-border/50">
+        <Button variant="ghost" size="icon" onClick={() => navigate('/')}>
           <ArrowLeft className="h-6 w-6" />
         </Button>
         
         <div className="flex-1 text-center">
-          <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold">Discovery</h1>
+          <h1 className="text-lg font-semibold">Discovery</h1>
         </div>
         
         <div className="w-10" />
       </header>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto responsive-padding space-y-6 md:ml-56">
+      <div className="flex-1 overflow-y-auto p-4 space-y-6">
         {/* Search */}
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -127,20 +125,20 @@ const DiscoveryPage = () => {
 
         {/* Categories */}
         <section>
-          <h2 className="text-lg md:text-xl lg:text-2xl font-semibold mb-3 md:mb-6">Categories</h2>
-          <div className="responsive-grid">
+          <h2 className="text-lg font-semibold mb-3">Categories</h2>
+          <div className="grid grid-cols-2 gap-3">
             {categories.map((category, index) => (
               <div
                 key={index}
                 onClick={() => handleCategoryClick(category.name)}
-                className="bg-background/60 backdrop-blur-sm border border-border/50 rounded-2xl p-4 md:p-6 hover:bg-background/80 transition-all duration-200 cursor-pointer"
+                className="bg-background/60 backdrop-blur-sm border border-border/50 rounded-2xl p-4 hover:bg-background/80 transition-all duration-200 cursor-pointer"
               >
                 <div className="flex flex-col items-center text-center space-y-2">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-primary/10 rounded-xl flex items-center justify-center text-2xl">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-2xl">
                     {category.icon}
                   </div>
                   <div>
-                    <h3 className="font-semibold responsive-text text-foreground">{category.name}</h3>
+                    <h3 className="font-semibold text-sm text-foreground">{category.name}</h3>
                     <p className="text-xs text-muted-foreground">{category.count}</p>
                   </div>
                 </div>

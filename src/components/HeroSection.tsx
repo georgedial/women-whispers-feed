@@ -44,28 +44,28 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="responsive-padding py-8 md:py-12 lg:py-16 relative">
-      <div className="space-y-6 md:space-y-8">
-        <div className="space-y-2">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+    <section className="px-4 py-8 relative">
+      <div className="space-y-4">
+        <div className="space-y-1">
+          <h2 className="text-5xl font-bold leading-tight">
             Your Health,
           </h2>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight gradient-text">
+          <h2 className="text-5xl font-bold leading-tight gradient-text">
             Your Knowledge
           </h2>
         </div>
         
-        <p className="text-muted-foreground responsive-text leading-relaxed max-w-2xl">
+        <p className="text-muted-foreground text-lg leading-relaxed">
           Welcome to Diane Health, empowering women with expert-backed health information, and guidance
         </p>
         
-        <div className="relative mt-8 max-w-2xl">
+        <div className="relative mt-8">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground z-10" />
           <Input 
             value={searchQuery}
             onChange={(e) => handleSearch(e.target.value)}
             placeholder='Try searching for "depression"'
-            className="pl-12 py-4 md:py-6 responsive-text rounded-2xl border-border w-full"
+            className="pl-12 py-6 text-lg rounded-2xl border-border"
           />
           
           {/* Search Results Dropdown */}

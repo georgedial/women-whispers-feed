@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SideNavigation from "@/components/SideNavigation";
 
 const SearchPage = () => {
   const navigate = useNavigate();
@@ -61,11 +60,10 @@ const SearchPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background mobile-container">
-      <SideNavigation />
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="flex items-center responsive-padding pt-4 md:pt-6 lg:pt-8 bg-background border-b md:ml-56">
-        <Button variant="ghost" size="icon" onClick={() => navigate(-1)} className="md:hidden">
+      <header className="flex items-center p-4 pt-12 bg-background border-b">
+        <Button variant="ghost" size="icon" onClick={() => navigate(-1)}>
           <ArrowLeft className="h-6 w-6" />
         </Button>
         
@@ -94,14 +92,14 @@ const SearchPage = () => {
         </div>
       </header>
 
-      <main className="responsive-padding space-y-6 md:ml-56">
+      <main className="p-4 space-y-6">
         {!searchQuery ? (
           <>
             {/* Recent Searches */}
             <section>
-              <div className="flex items-center mb-3 md:mb-6">
+              <div className="flex items-center mb-3">
                 <Clock className="h-4 w-4 mr-2 text-muted-foreground" />
-                <h2 className="text-lg md:text-xl lg:text-2xl font-semibold">Recent</h2>
+                <h2 className="text-lg font-semibold">Recent</h2>
               </div>
               <div className="flex flex-wrap gap-2">
                 {recentSearches.map((search, index) => (
@@ -119,15 +117,15 @@ const SearchPage = () => {
 
             {/* Trending Topics */}
             <section>
-              <div className="flex items-center mb-3 md:mb-6">
+              <div className="flex items-center mb-3">
                 <TrendingUp className="h-4 w-4 mr-2 text-muted-foreground" />
-                <h2 className="text-lg md:text-xl lg:text-2xl font-semibold">Trending</h2>
+                <h2 className="text-lg font-semibold">Trending</h2>
               </div>
-              <div className="responsive-grid">
+              <div className="grid grid-cols-2 gap-3">
                 {trendingTopics.map((topic, index) => (
                   <Card key={index} className="cursor-pointer hover:shadow-md transition-shadow">
-                    <CardContent className="p-4 md:p-6 text-center">
-                      <p className="responsive-text font-medium">{topic}</p>
+                    <CardContent className="p-4 text-center">
+                      <p className="text-sm font-medium">{topic}</p>
                     </CardContent>
                   </Card>
                 ))}
@@ -136,7 +134,7 @@ const SearchPage = () => {
 
             {/* Search Suggestions */}
             <section>
-              <h2 className="text-lg md:text-xl lg:text-2xl font-semibold mb-3 md:mb-6">Popular searches</h2>
+              <h2 className="text-lg font-semibold mb-3">Popular searches</h2>
               <div className="space-y-2">
                 {["Birth control options", "Prenatal vitamins", "Exercise during pregnancy", "Postpartum depression"].map((suggestion, index) => (
                   <Button
