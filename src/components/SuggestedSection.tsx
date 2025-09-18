@@ -1,21 +1,27 @@
 import { MessageCircle, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 const SuggestedSection = () => {
+  const navigate = useNavigate();
+  
   const suggestedArticles = [
     {
+      id: "understanding-menstrual-cycle",
       title: "Understanding Your Menstrual Cycle",
       category: "Women's Health",
       readTime: "8 m",
       image: "/api/placeholder/80/80"
     },
     {
+      id: "postpartum-depression",
       title: "Postpartum Depression: Signs and Support",
       category: "Mental Health",
       readTime: "12 m",
       image: "/api/placeholder/80/80"
     },
     {
+      id: "nutrition-during-pregnancy",
       title: "Nutrition During Pregnancy",
       category: "Pregnancy",
       readTime: "6 m",
@@ -29,7 +35,11 @@ const SuggestedSection = () => {
       
       <div className="space-y-4">
         {suggestedArticles.map((article, index) => (
-          <Card key={index} className="border-0 shadow-sm">
+          <Card 
+            key={index} 
+            className="border-0 shadow-sm cursor-pointer hover:shadow-md transition-shadow"
+            onClick={() => navigate(`/article/${article.id}`)}
+          >
             <CardContent className="p-4">
               <div className="flex items-center space-x-4">
                 <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary-dark/20 rounded-2xl flex items-center justify-center">

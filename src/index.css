@@ -153,4 +153,39 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+  /* Article prose styles */
+  .prose {
+    color: hsl(var(--foreground));
+  }
+
+  .prose h2 {
+    @apply text-2xl font-bold mt-8 mb-4;
+    color: hsl(var(--primary));
+  }
+
+  .prose h3 {
+    @apply text-xl font-semibold mt-6 mb-3;
+    color: hsl(var(--foreground));
+  }
+
+  .prose h4 {
+    @apply text-lg font-medium mt-4 mb-2;
+    color: hsl(var(--foreground));
+  }
+
+  .prose p {
+    @apply mb-4 leading-relaxed;
+    color: hsl(var(--foreground));
+  }
+
+  .prose ul {
+    @apply mb-4 pl-6;
+  }
+
+  .prose li {
+    @apply mb-2;
+    color: hsl(var(--foreground));
+    list-style-type: disc;
+  }
 }

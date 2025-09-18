@@ -10,25 +10,25 @@ const HeroSection = () => {
 
   const searchResults = [
     {
-      id: 1,
-      title: "Understanding Depression in Women",
-      category: "Mental Health",
+      id: "postpartum-depression",
+      title: "Postpartum Depression: Signs & Support",
+      category: "Mental Health", 
+      readTime: "12 min",
+      trending: true
+    },
+    {
+      id: "understanding-menstrual-cycle",
+      title: "Understanding Your Menstrual Cycle",
+      category: "Women's Health",
       readTime: "8 min",
       trending: true
     },
     {
-      id: 2,
-      title: "Postpartum Depression: Signs & Support",
-      category: "Mental Health", 
-      readTime: "12 min",
+      id: "nutrition-during-pregnancy",
+      title: "Nutrition During Pregnancy",
+      category: "Pregnancy",
+      readTime: "6 min",
       trending: false
-    },
-    {
-      id: 3,
-      title: "Managing Anxiety During Pregnancy",
-      category: "Mental Health",
-      readTime: "10 min",
-      trending: true
     }
   ];
 
@@ -40,8 +40,7 @@ const HeroSection = () => {
   const handleResultClick = (result: any) => {
     setShowResults(false);
     setSearchQuery("");
-    // Navigate to article detail page (to be implemented)
-    console.log("Navigate to:", result.title);
+    navigate(`/article/${result.id}`);
   };
 
   return (
