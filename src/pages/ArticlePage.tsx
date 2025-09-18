@@ -1,12 +1,15 @@
 import { ArrowLeft, Clock, MessageCircle, Heart, Share } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import BottomNavigation from "@/components/BottomNavigation";
+import ShareDialog from "@/components/ShareDialog";
 
 const ArticlePage = () => {
   const navigate = useNavigate();
   const { articleId } = useParams();
+  const [isShareDialogOpen, setIsShareDialogOpen] = useState(false);
 
   // Mock article data - in a real app, this would come from an API
   const articles = {
@@ -120,6 +123,7 @@ const ArticlePage = () => {
   };
 
   const article = articles[articleId as keyof typeof articles];
+  const currentUrl = `${window.location.origin}/article/${articleId}`;
 
   if (!article) {
     return (
@@ -147,7 +151,12 @@ const ArticlePage = () => {
           <ArrowLeft className="h-5 w-5" />
         </Button>
         <div className="flex items-center space-x-2">
-          <Button variant="ghost" size="icon" className="rounded-full">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="rounded-full"
+            onClick={() => setIsShareDialogOpen(true)}
+          >
             <Share className="h-5 w-5" />
           </Button>
           <Button variant="ghost" size="icon" className="rounded-full">
@@ -214,6 +223,17 @@ const ArticlePage = () => {
           </div>
         </div>
       </main>
+
+      <ShareDialog
+        isOpen={isShareDialogOpen}
+        onClose={() => setIsShareDialogOpen(false)}
+        article={{
+          title: article.title,
+          category: article.category,
+          author: article.author,
+        }}
+        articleUrl={currentUrl}
+      />
 
       <BottomNavigation />
     </div>
