@@ -19,25 +19,25 @@ const DiscoveryPage = () => {
 
   const suggestedArticles = [
     {
-      id: 1,
-      title: "Understanding PCOS: A Complete Guide",
+      id: "understanding-menstrual-cycle",
+      title: "Understanding Your Menstrual Cycle",
       category: "Women's Health",
       readTime: "8 min",
       image: "🩺"
     },
     {
-      id: 2,
-      title: "Pregnancy Nutrition Essentials",
+      id: "nutrition-during-pregnancy",
+      title: "Nutrition During Pregnancy",
       category: "Pregnancy",
-      readTime: "12 min",
+      readTime: "6 min",
       image: "🤰"
     },
     {
-      id: 3,
-      title: "Managing Menopause Naturally",
-      category: "Menopause",
-      readTime: "10 min",
-      image: "🌸"
+      id: "postpartum-depression",
+      title: "Postpartum Depression: Signs and Support",
+      category: "Mental Health",
+      readTime: "12 min",
+      image: "🧠"
     }
   ];
 
@@ -100,6 +100,7 @@ const DiscoveryPage = () => {
             {suggestedArticles.map((article) => (
               <div
                 key={article.id}
+                onClick={() => navigate(`/article/${article.id}`)}
                 className="bg-background/60 backdrop-blur-sm border border-border/50 rounded-2xl p-4 hover:bg-background/80 transition-all duration-200 cursor-pointer"
               >
                 <div className="flex items-start space-x-3">

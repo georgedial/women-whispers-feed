@@ -14,31 +14,31 @@ const CategoryPage = () => {
   
   const categoryArticles = [
     {
-      id: 1,
-      title: "First Trimester: What to Expect",
-      readTime: "12 min",
-      author: "Dr. Sarah Johnson",
-      summary: "A comprehensive guide to the first three months of pregnancy, covering symptoms, nutrition, and important milestones.",
+      id: "nutrition-during-pregnancy",
+      title: "Nutrition During Pregnancy", 
+      readTime: "6 min",
+      author: "Nutritionist Lisa Park",
+      summary: "Essential nutrients and foods to eat during pregnancy for optimal health.",
       featured: true
     },
     {
-      id: 2,
-      title: "Pregnancy Nutrition Guide",
+      id: "understanding-menstrual-cycle",
+      title: "Understanding Your Menstrual Cycle",
       readTime: "8 min",
-      author: "Nutritionist Mary Chen",
-      summary: "Essential nutrients and foods to eat during pregnancy for optimal health.",
+      author: "Dr. Sarah Johnson",
+      summary: "Learn about the four phases of your cycle and how to track your health.",
       featured: false
     },
     {
-      id: 3,
-      title: "Exercise During Pregnancy",
-      readTime: "10 min",
-      author: "Dr. Lisa Martinez",
-      summary: "Safe exercises and activities to maintain fitness throughout pregnancy.",
+      id: "postpartum-depression",
+      title: "Postpartum Depression: Signs and Support",
+      readTime: "12 min",
+      author: "Dr. Emily Chen",
+      summary: "Understanding postpartum depression and available support resources.",
       featured: false
     },
     {
-      id: 4,
+      id: "understanding-menstrual-cycle",
       title: "Common Pregnancy Symptoms",
       readTime: "6 min",
       author: "Dr. Emily Rodriguez",
@@ -114,7 +114,10 @@ const CategoryPage = () => {
         {categoryArticles.filter(article => article.featured).map((article) => (
           <section key={article.id}>
             <h3 className="text-lg font-semibold mb-3">Featured Article</h3>
-            <div className="bg-background/60 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:bg-background/80 transition-all duration-200 cursor-pointer">
+            <div 
+              onClick={() => navigate(`/article/${article.id}`)}
+              className="bg-background/60 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:bg-background/80 transition-all duration-200 cursor-pointer"
+            >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex-1">
                   <h4 className="font-semibold text-foreground text-lg mb-2">{article.title}</h4>
@@ -140,6 +143,7 @@ const CategoryPage = () => {
             {categoryArticles.filter(article => !article.featured).map((article) => (
               <div
                 key={article.id}
+                onClick={() => navigate(`/article/${article.id}`)}
                 className="bg-background/60 backdrop-blur-sm border border-border/50 rounded-2xl p-4 hover:bg-background/80 transition-all duration-200 cursor-pointer"
               >
                 <div className="flex items-start justify-between">
