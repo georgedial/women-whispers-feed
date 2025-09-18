@@ -9,6 +9,10 @@ const DiscoveryPage = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   
+  const handleCategoryClick = (categoryName: string) => {
+    navigate(`/category/${categoryName.toLowerCase().replace(' ', '-')}`);
+  };
+  
   const trendingTopics = [
     "Pregnancy", "Menopause", "PCOS", "Mental Health", "Nutrition", "Fitness"
   ];
@@ -125,6 +129,7 @@ const DiscoveryPage = () => {
             {categories.map((category, index) => (
               <div
                 key={index}
+                onClick={() => handleCategoryClick(category.name)}
                 className="bg-background/60 backdrop-blur-sm border border-border/50 rounded-2xl p-4 hover:bg-background/80 transition-all duration-200 cursor-pointer"
               >
                 <div className="flex flex-col items-center text-center space-y-2">
