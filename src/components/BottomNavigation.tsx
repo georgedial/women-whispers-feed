@@ -24,7 +24,7 @@ const BottomNavigation = ({ currentPage }: BottomNavigationProps) => {
 
   return (
     <nav className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-[390px] bg-background border-t border-border">
-      <div className="flex items-center justify-around py-2">
+      <div className="flex items-center justify-around py-4">
         {navItems.map((item, index) => (
           <Button
             key={index}
