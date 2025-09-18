@@ -14,14 +14,14 @@ const SuggestedSection = () => {
       title: "Understanding Your Menstrual Cycle",
       category: "Women's Health",
       readTime: "8 m",
-      image: healthWomanPhone
+      image: happyWomanSmiling
     },
     {
       id: "postpartum-depression",
       title: "Postpartum Depression: Signs and Support",
       category: "Mental Health",
       readTime: "12 m",
-      image: happyWomanSmiling
+      image: healthWomanPhone
     },
     {
       id: "nutrition-during-pregnancy",
