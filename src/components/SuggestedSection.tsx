@@ -30,7 +30,7 @@ const SuggestedSection = () => {
   ];
 
   return (
-    <section className="px-4 py-6">
+    <section className="px-4 py-3">
       <h3 className="text-2xl font-bold mb-4">Suggested</h3>
       
       <div className="space-y-4">

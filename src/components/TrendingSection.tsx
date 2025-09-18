@@ -9,7 +9,7 @@ const TrendingSection = () => {
   ];
 
   return (
-    <section className="px-4 py-6">
+    <section className="px-4 py-3">
       <h3 className="text-2xl font-bold mb-4">Trending</h3>
       
       <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2">
