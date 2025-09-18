@@ -1,6 +1,9 @@
 import { MessageCircle, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
+import healthWomanPhone from "@/assets/health-woman-phone.jpg";
+import happyWomanSmiling from "@/assets/happy-woman-smiling.jpg";
+import motherChild from "@/assets/mother-child.jpg";
 
 const SuggestedSection = () => {
   const navigate = useNavigate();
@@ -11,21 +14,21 @@ const SuggestedSection = () => {
       title: "Understanding Your Menstrual Cycle",
       category: "Women's Health",
       readTime: "8 m",
-      image: "/api/placeholder/80/80"
+      image: healthWomanPhone
     },
     {
       id: "postpartum-depression",
       title: "Postpartum Depression: Signs and Support",
       category: "Mental Health",
       readTime: "12 m",
-      image: "/api/placeholder/80/80"
+      image: happyWomanSmiling
     },
     {
       id: "nutrition-during-pregnancy",
       title: "Nutrition During Pregnancy",
       category: "Pregnancy",
       readTime: "6 m",
-      image: "/api/placeholder/80/80"
+      image: motherChild
     }
   ];
 
@@ -42,8 +45,12 @@ const SuggestedSection = () => {
           >
             <CardContent className="p-4">
               <div className="flex items-center space-x-4">
-                <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary-dark/20 rounded-2xl flex items-center justify-center">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl"></div>
+                <div className="w-20 h-20 rounded-2xl overflow-hidden">
+                  <img 
+                    src={article.image} 
+                    alt={article.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 
                 <div className="flex-1 space-y-2">
