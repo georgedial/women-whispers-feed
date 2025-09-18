@@ -60,21 +60,23 @@ const ChatPage = () => {
       <div className="flex-1 p-4 space-y-4 overflow-y-auto">
         {messages.map((msg) => (
           <div key={msg.id} className={`flex ${msg.isAI ? 'justify-start' : 'justify-end'}`}>
-            <div className={`max-w-[80%] rounded-2xl p-4 ${
+            <div className={`max-w-[80%] rounded-3xl p-4 ${
               msg.isAI 
-                ? 'bg-secondary text-secondary-foreground' 
+                ? 'bg-white border border-gray-100 shadow-sm' 
                 : 'bg-primary text-primary-foreground'
             }`}>
               {msg.isAI && (
-                <div className="flex items-center space-x-2 mb-2">
-                  <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center">
-                    <span className="text-xs font-semibold">D</span>
+                <div className="flex items-center space-x-2 mb-3">
+                  <div className="w-7 h-7 bg-gray-500 rounded-full flex items-center justify-center">
+                    <span className="text-xs font-semibold text-white">👩🏻‍⚕️</span>
                   </div>
-                  <span className="text-sm font-medium">Dr.Diane</span>
+                  <span className="text-sm font-semibold text-gray-900">Dr.Diane</span>
                 </div>
               )}
-              <p className="text-sm leading-relaxed">{msg.text}</p>
-              <span className="text-xs opacity-70 mt-2 block">{msg.time}</span>
+              <p className={`text-sm leading-relaxed ${msg.isAI ? 'text-gray-700' : ''}`}>{msg.text}</p>
+              <div className="flex justify-end mt-3">
+                <span className={`text-xs ${msg.isAI ? 'text-gray-500' : 'text-primary-foreground/70'}`}>{msg.time}</span>
+              </div>
             </div>
           </div>
         ))}
