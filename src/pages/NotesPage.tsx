@@ -140,33 +140,28 @@ const NotesPage = () => {
               {filteredNotes.map((note) => (
                 <Card key={note.id} className="bg-background/60 backdrop-blur-sm border-border/50">
                   <CardContent className="p-4">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <FileText className="h-4 w-4 text-primary" />
-                          <h4 className="font-semibold text-foreground">{note.title}</h4>
-                          <Badge variant="secondary" className={getCategoryColor(note.category)}>
-                            {note.category}
-                          </Badge>
-                        </div>
-                        <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{note.content}</p>
-                        <div className="flex flex-wrap gap-1 mb-2">
-                          {note.tags.map((tag) => (
-                            <Badge key={tag} variant="outline" className="text-xs">
-                              #{tag}
-                            </Badge>
-                          ))}
-                        </div>
-                        <div className="flex items-center space-x-2 text-xs text-muted-foreground">
-                          <Calendar className="h-3 w-3" />
-                          <span>{note.date}</span>
-                          <span>•</span>
-                          <span>{note.time}</span>
-                        </div>
+                    <div className="flex-1">
+                      <div className="flex items-center space-x-2 mb-2">
+                        <FileText className="h-4 w-4 text-primary" />
+                        <h4 className="font-semibold text-foreground">{note.title}</h4>
+                        <Badge variant="secondary" className={getCategoryColor(note.category)}>
+                          {note.category}
+                        </Badge>
                       </div>
-                      <Button variant="ghost" size="sm">
-                        <Edit3 className="h-4 w-4" />
-                      </Button>
+                      <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{note.content}</p>
+                      <div className="flex flex-wrap gap-1 mb-2">
+                        {note.tags.map((tag) => (
+                          <Badge key={tag} variant="outline" className="text-xs">
+                            #{tag}
+                          </Badge>
+                        ))}
+                      </div>
+                      <div className="flex items-center space-x-2 text-xs text-muted-foreground">
+                        <Calendar className="h-3 w-3" />
+                        <span>{note.date}</span>
+                        <span>•</span>
+                        <span>{note.time}</span>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -179,19 +174,14 @@ const NotesPage = () => {
               {filteredNotes.slice(0, 4).map((note) => (
                 <Card key={note.id} className="bg-background/60 backdrop-blur-sm border-border/50">
                   <CardContent className="p-4">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-foreground mb-1">{note.title}</h4>
-                        <p className="text-sm text-muted-foreground mb-2">{note.content}</p>
-                        <div className="flex items-center space-x-2 text-xs text-muted-foreground">
-                          <span>{note.date}</span>
-                          <span>•</span>
-                          <span>{note.time}</span>
-                        </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-foreground mb-1">{note.title}</h4>
+                      <p className="text-sm text-muted-foreground mb-2">{note.content}</p>
+                      <div className="flex items-center space-x-2 text-xs text-muted-foreground">
+                        <span>{note.date}</span>
+                        <span>•</span>
+                        <span>{note.time}</span>
                       </div>
-                      <Button variant="ghost" size="sm">
-                        <Edit3 className="h-4 w-4" />
-                      </Button>
                     </div>
                   </CardContent>
                 </Card>

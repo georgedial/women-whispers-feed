@@ -119,12 +119,7 @@ const SymptomTrackingPage = () => {
               {symptoms.map((symptom) => (
                 <Card key={symptom.id} className="bg-background/60 backdrop-blur-sm border-border/50">
                   <CardHeader className="pb-3">
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-base">{symptom.name}</CardTitle>
-                      <Button variant="ghost" size="sm">
-                        <Edit3 className="h-4 w-4" />
-                      </Button>
-                    </div>
+                    <CardTitle className="text-base">{symptom.name}</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3">
                     <p className="text-sm text-muted-foreground">{symptom.status}</p>
@@ -179,26 +174,21 @@ const SymptomTrackingPage = () => {
               {recentEntries.map((entry) => (
                 <Card key={entry.id} className="bg-background/60 backdrop-blur-sm border-border/50">
                   <CardContent className="p-4">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center space-x-2 mb-1">
-                          <Activity className="h-4 w-4 text-primary" />
-                          <h4 className="font-semibold text-sm">{entry.symptom}</h4>
-                        </div>
-                        <p className="text-sm text-muted-foreground mb-2">{entry.value}</p>
-                        {entry.notes && (
-                          <p className="text-xs text-muted-foreground mb-2">{entry.notes}</p>
-                        )}
-                        <div className="flex items-center space-x-2 text-xs text-muted-foreground">
-                          <Calendar className="h-3 w-3" />
-                          <span>{entry.date}</span>
-                          <span>•</span>
-                          <span>{entry.time}</span>
-                        </div>
+                    <div className="flex-1">
+                      <div className="flex items-center space-x-2 mb-1">
+                        <Activity className="h-4 w-4 text-primary" />
+                        <h4 className="font-semibold text-sm">{entry.symptom}</h4>
                       </div>
-                      <Button variant="ghost" size="sm">
-                        <Edit3 className="h-4 w-4" />
-                      </Button>
+                      <p className="text-sm text-muted-foreground mb-2">{entry.value}</p>
+                      {entry.notes && (
+                        <p className="text-xs text-muted-foreground mb-2">{entry.notes}</p>
+                      )}
+                      <div className="flex items-center space-x-2 text-xs text-muted-foreground">
+                        <Calendar className="h-3 w-3" />
+                        <span>{entry.date}</span>
+                        <span>•</span>
+                        <span>{entry.time}</span>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
