@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Bell, Shield, Moon, Globe, Heart, Settings, Edit, ChevronRight, User, Mail, Phone, MapPin } from "lucide-react";
 import BottomNavigation from "@/components/BottomNavigation";
 import MobileHeader from "@/components/MobileHeader";
+import sarahProfileImage from "@/assets/sarah-profile-distorted.png";
 
 const ProfilePage = () => {
   return (
@@ -18,8 +19,12 @@ const ProfilePage = () => {
         <Card>
           <CardContent className="p-6">
             <div className="flex items-center space-x-4">
-              <Avatar className="h-20 w-20">
-                <AvatarImage src="/placeholder.svg" alt="Profile picture" />
+              <Avatar className="h-20 w-20 relative overflow-hidden">
+                <AvatarImage 
+                  src={sarahProfileImage} 
+                  alt="Sarah Johnson profile picture" 
+                  className="object-cover transform hover:scale-110 transition-transform duration-300 filter brightness-105 contrast-110 saturate-110 hue-rotate-3 hover:hue-rotate-6"
+                />
                 <AvatarFallback className="bg-primary text-primary-foreground text-lg">
                   <User className="h-8 w-8" />
                 </AvatarFallback>
