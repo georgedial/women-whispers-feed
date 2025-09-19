@@ -59,14 +59,6 @@ const SearchPage = () => {
     setSearchQuery("");
   };
 
-  const handleArticleClick = (result: any) => {
-    if (result.type === "Article") {
-      navigate(`/article/${result.id}`);
-    } else if (result.type === "Chat") {
-      navigate("/chat");
-    }
-  };
-
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -172,7 +164,7 @@ const SearchPage = () => {
                   result.category.toLowerCase().includes(searchQuery.toLowerCase())
                 )
                 .map((result) => (
-                  <Card key={result.id} className="cursor-pointer hover:shadow-md transition-shadow" onClick={() => handleArticleClick(result)}>
+                  <Card key={result.id} className="cursor-pointer hover:shadow-md transition-shadow">
                     <CardContent className="p-4">
                       <div className="flex items-start justify-between mb-2">
                         <Badge variant="outline" className="text-xs">
