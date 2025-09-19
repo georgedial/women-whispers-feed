@@ -12,7 +12,7 @@ const ChatPage = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      sender: "Dr.Diane",
+      sender: "Dr. Diane",
       text: "Hi Sarah\nI just want to check in and see how I can help.",
       time: "Apr 10",
       isAI: true
@@ -25,7 +25,7 @@ const ChatPage = () => {
       // Start conversation with topic-specific message
       const aiMessage = {
         id: Date.now(),
-        sender: "Dr.Diane",
+        sender: "Dr. Diane",
         text: `What question do you have about ${topic}?`,
         time: "Now",
         isAI: true
@@ -66,7 +66,7 @@ const ChatPage = () => {
         </Button>
         
         <div className="flex-1 text-center">
-          <h1 className="text-lg font-semibold">Chat with AI Dr.Diane</h1>
+          <h1 className="text-lg font-semibold">Chat with AI Dr. Diane</h1>
         </div>
         
         <div className="w-10" />
@@ -86,7 +86,7 @@ const ChatPage = () => {
                   <div className="w-7 h-7 bg-gray-500 rounded-full flex items-center justify-center">
                     <span className="text-xs font-semibold text-white">👩🏻‍⚕️</span>
                   </div>
-                  <span className="text-base font-semibold text-gray-900">Dr.Diane</span>
+                  <span className="text-base font-semibold text-gray-900">Dr. Diane</span>
                 </div>
               )}
               <p className={`text-base leading-relaxed ${msg.isAI ? 'text-gray-700' : ''}`}>{msg.text}</p>
