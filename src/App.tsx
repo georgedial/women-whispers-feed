@@ -9,6 +9,8 @@ import DiscoveryPage from "./pages/DiscoveryPage";
 import CategoryPage from "./pages/CategoryPage";
 import ArticlePage from "./pages/ArticlePage";
 import CarePage from "./pages/CarePage";
+import SymptomTrackingPage from "./pages/SymptomTrackingPage";
+import NotesPage from "./pages/NotesPage";
 import ProfilePage from "./pages/ProfilePage";
 import SearchPage from "./pages/SearchPage";
 import TrendingTopicPage from "./pages/TrendingTopicPage";
@@ -29,6 +31,8 @@ const App = () => (
           <Route path="/category/:categoryName" element={<CategoryPage />} />
           <Route path="/article/:articleId" element={<ArticlePage />} />
           <Route path="/care" element={<CarePage />} />
+          <Route path="/care/symptoms" element={<SymptomTrackingPage />} />
+          <Route path="/care/notes" element={<NotesPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/trending/:topicName" element={<TrendingTopicPage />} />

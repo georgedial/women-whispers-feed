@@ -103,7 +103,7 @@ const CarePage = () => {
         <section>
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-xl font-semibold">Symptom tracking</h3>
-            <Button variant="ghost" size="sm" className="text-primary">
+            <Button variant="ghost" size="sm" className="text-primary" onClick={() => navigate('/care/symptoms')}>
               <TrendingUp className="h-4 w-4 mr-1" />
               View all
             </Button>
@@ -137,7 +137,7 @@ const CarePage = () => {
         <section>
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-xl font-semibold">Recent notes</h3>
-            <Button variant="ghost" size="sm" className="text-primary">
+            <Button variant="ghost" size="sm" className="text-primary" onClick={() => navigate('/care/notes')}>
               <Calendar className="h-4 w-4 mr-1" />
               View all
             </Button>
