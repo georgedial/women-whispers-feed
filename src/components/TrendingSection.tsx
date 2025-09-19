@@ -26,9 +26,9 @@ const TrendingSection = () => {
           {trendingTopics.map((topic, index) => (
             <Button
               key={index}
-              variant="outline"
+              variant="ghost"
               size="sm"
-              className="trend-tag whitespace-nowrap"
+              className="trend-tag whitespace-nowrap p-0 h-auto"
               onClick={() => handleTopicClick(topic)}
             >
               {topic}
