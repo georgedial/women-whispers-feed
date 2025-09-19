@@ -13,7 +13,7 @@ const ChatPage = () => {
     {
       id: 1,
       sender: "Dr.Diane",
-      text: "Hi Alex, I just wanted to check in on you and see how the home...",
+      text: "Hi Sarah\nI just want to check in and see how I can help.",
       time: "Apr 10",
       isAI: true
     }
