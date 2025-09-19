@@ -1,6 +1,7 @@
-import { ArrowLeft, Plus, Calendar, TrendingUp, Edit3 } from "lucide-react";
+import { ArrowLeft, Plus, Calendar, TrendingUp, Edit3, FileText, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -67,9 +68,23 @@ const CarePage = () => {
           <h1 className="text-lg font-semibold">Care</h1>
         </div>
         
-        <Button variant="ghost" size="icon">
-          <Plus className="h-5 w-5" />
-        </Button>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" size="icon">
+              <Plus className="h-5 w-5" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem onClick={() => setIsSymptomDialogOpen(true)}>
+              <Activity className="h-4 w-4 mr-2" />
+              Add Symptom
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setIsNoteDialogOpen(true)}>
+              <FileText className="h-4 w-4 mr-2" />
+              Add Note
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </header>
 
       {/* Content */}
