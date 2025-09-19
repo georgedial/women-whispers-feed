@@ -14,7 +14,7 @@ const MobileHeader = ({ title = "Diane Health" }: MobileHeaderProps) => {
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="ghost" size="icon">
-            <Menu className="h-8 w-8" />
+            <Menu className="h-6 w-6" />
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="w-80">
@@ -66,7 +66,7 @@ const MobileHeader = ({ title = "Diane Health" }: MobileHeaderProps) => {
       </h1>
       
       <Button variant="ghost" size="icon" onClick={() => navigate('/search')}>
-        <Search className="h-8 w-8" />
+        <Search className="h-6 w-6" />
       </Button>
     </header>
   );
