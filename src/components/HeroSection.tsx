@@ -56,7 +56,7 @@ const HeroSection = () => {
         </div>
         
         <p className="text-muted-foreground text-lg leading-relaxed">
-          Welcome to Diane Health, empowering women with expert-backed health information, and guidance
+          Welcome to Diane Health, empowering women with expert-backed health information, and guidance.
         </p>
         
         <div className="relative mt-8">
