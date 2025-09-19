@@ -10,18 +10,10 @@ import MobileHeader from "@/components/MobileHeader";
 
 const ProfilePage = () => {
   return (
-    <div className="min-h-screen bg-background max-w-sm mx-auto md:flex md:items-center md:justify-center">
-      {/* Mobile-only message for larger screens */}
-      <div className="hidden md:block text-center p-8">
-        <h1 className="text-2xl font-semibold mb-4">Mobile App</h1>
-        <p className="text-muted-foreground">This profile page is designed for mobile devices. Please view on a mobile device or resize your browser window.</p>
-      </div>
-      
-      {/* Mobile content */}
-      <div className="md:hidden w-full">
+    <div className="mobile-container">
       <MobileHeader title="Profile" />
       
-      <main className="flex-1 p-4 pb-24 space-y-6">
+      <main className="p-4 pb-24 space-y-6">
         {/* User Info Card */}
         <Card>
           <CardContent className="p-6">
@@ -168,7 +160,6 @@ const ProfilePage = () => {
       </main>
 
       <BottomNavigation currentPage="profile" />
-      </div>
     </div>
   );
 };
