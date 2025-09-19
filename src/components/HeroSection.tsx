@@ -44,7 +44,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="px-4 py-8 relative">
+    <section className="px-4 py-4 relative">
       <div className="space-y-4">
         <div className="space-y-1">
           <h2 className="text-5xl font-bold leading-tight">
