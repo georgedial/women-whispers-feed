@@ -127,16 +127,10 @@
   }
 
   .mobile-container {
-    max-width: 100%;
+    max-width: 390px;
     margin: 0 auto;
     min-height: 100vh;
     background: hsl(var(--background));
-  }
-
-  @media (max-width: 768px) {
-    .mobile-container {
-      max-width: 390px;
-    }
   }
 
   .trend-tag {

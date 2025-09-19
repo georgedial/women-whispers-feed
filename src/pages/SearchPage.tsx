@@ -60,7 +60,7 @@ const SearchPage = () => {
   };
 
   return (
-    <div className="mobile-container">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="flex items-center p-4 pt-12 bg-background border-b">
         <Button variant="ghost" size="icon" onClick={() => navigate(-1)}>
