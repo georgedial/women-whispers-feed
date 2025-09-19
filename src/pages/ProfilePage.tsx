@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Bell, Shield, Moon, Globe, Heart, Settings, Edit, ChevronRight, User, Mail, Phone, MapPin } from "lucide-react";
 import BottomNavigation from "@/components/BottomNavigation";
 import MobileHeader from "@/components/MobileHeader";
+import sarahProfile from "@/assets/sarah-profile.jpg";
 
 const ProfilePage = () => {
   return (
@@ -19,7 +20,7 @@ const ProfilePage = () => {
           <CardContent className="p-6">
             <div className="flex items-center space-x-4">
               <Avatar className="h-20 w-20">
-                <AvatarImage src="/placeholder.svg" alt="Profile picture" />
+                <AvatarImage src={sarahProfile} alt="Sarah Johnson profile picture" />
                 <AvatarFallback className="bg-primary text-primary-foreground text-lg">
                   <User className="h-8 w-8" />
                 </AvatarFallback>
