@@ -34,7 +34,7 @@ const BottomNavigation = ({ currentPage }: BottomNavigationProps) => {
               isActive(item) ? 'text-primary' : 'text-muted-foreground'
             }`}
           >
-            <item.icon className="h-6 w-6" />
+            <item.icon className="h-5 w-5" />
             <span className="text-xs mt-1">{item.label}</span>
           </Button>
         ))}
