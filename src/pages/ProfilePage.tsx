@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Bell, Shield, Moon, Globe, Heart, Settings, Edit, ChevronRight, User, Mail, Phone, MapPin } from "lucide-react";
 import BottomNavigation from "@/components/BottomNavigation";
 import MobileHeader from "@/components/MobileHeader";
+import EditProfileDialog from "@/components/EditProfileDialog";
 import sarahProfileImage from "@/assets/sarah-profile-distorted.png";
 
 const ProfilePage = () => {
@@ -39,9 +40,11 @@ const ProfilePage = () => {
                   </Badge>
                 </div>
               </div>
-              <Button variant="ghost" size="icon">
-                <Edit className="h-4 w-4" />
-              </Button>
+              <EditProfileDialog>
+                <Button variant="ghost" size="icon">
+                  <Edit className="h-4 w-4" />
+                </Button>
+              </EditProfileDialog>
             </div>
           </CardContent>
         </Card>
@@ -155,9 +158,11 @@ const ProfilePage = () => {
 
         {/* Actions */}
         <div className="space-y-3">
-          <Button variant="outline" className="w-full">
-            Edit Profile
-          </Button>
+          <EditProfileDialog>
+            <Button variant="outline" className="w-full">
+              Edit Profile
+            </Button>
+          </EditProfileDialog>
           <Button variant="ghost" className="w-full text-destructive hover:text-destructive">
             Sign Out
           </Button>
