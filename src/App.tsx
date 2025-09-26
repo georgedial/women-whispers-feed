@@ -12,6 +12,7 @@ import CarePage from "./pages/CarePage";
 import SymptomTrackingPage from "./pages/SymptomTrackingPage";
 import NotesPage from "./pages/NotesPage";
 import ProfilePage from "./pages/ProfilePage";
+import AuthPage from "./pages/AuthPage";
 import SearchPage from "./pages/SearchPage";
 import TrendingTopicPage from "./pages/TrendingTopicPage";
 import NotFound from "./pages/NotFound";
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/care/symptoms" element={<SymptomTrackingPage />} />
           <Route path="/care/notes" element={<NotesPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/auth" element={<AuthPage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/trending/:topicName" element={<TrendingTopicPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

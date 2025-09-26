@@ -5,12 +5,19 @@ import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import { Badge } from "@/components/ui/badge";
 import { Bell, Shield, Moon, Globe, Heart, Settings, Edit, ChevronRight, User, Mail, Phone, MapPin } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import BottomNavigation from "@/components/BottomNavigation";
 import MobileHeader from "@/components/MobileHeader";
 import EditProfileDialog from "@/components/EditProfileDialog";
 import sarahProfileImage from "@/assets/sarah-profile-distorted.png";
 
 const ProfilePage = () => {
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    navigate("/auth");
+  };
+
   return (
     <div className="mobile-container">
       <MobileHeader title="Profile" />
@@ -163,7 +170,11 @@ const ProfilePage = () => {
               Edit Profile
             </Button>
           </EditProfileDialog>
-          <Button variant="ghost" className="w-full text-destructive hover:text-destructive">
+          <Button 
+            variant="ghost" 
+            className="w-full text-destructive hover:text-destructive"
+            onClick={handleSignOut}
+          >
             Sign Out
           </Button>
         </div>
