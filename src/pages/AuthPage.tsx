@@ -26,14 +26,16 @@ const AuthPage = () => {
         </Link>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-end p-6 pb-12">
-        {/* Logo/Brand area */}
-        <div className="mb-8 text-center">
+      {/* Logo/Brand area - Top Middle */}
+      <div className="relative z-10 flex-1 flex flex-col justify-center items-center pt-20 pb-8">
+        <div className="text-center mb-auto">
           <h1 className="text-4xl font-bold text-white mb-2">Diane Health</h1>
           <p className="text-white/90 text-lg">Your wellness journey starts here</p>
         </div>
+      </div>
 
+      {/* Bottom Content */}
+      <div className="relative z-10 p-6 pb-12">
         {/* Action Buttons */}
         <div className="space-y-4 mb-8">
           <Button 
