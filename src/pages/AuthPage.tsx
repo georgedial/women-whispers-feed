@@ -1,9 +1,17 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import backgroundImage from "@/assets/diane-health-background.jpg";
+import SignUpFlow from "@/components/SignUpFlow";
 
 const AuthPage = () => {
+  const [showSignUp, setShowSignUp] = useState(false);
+
+  if (showSignUp) {
+    return <SignUpFlow />;
+  }
+
   return (
     <div className="relative min-h-screen flex flex-col">
       {/* Background Image */}
@@ -49,6 +57,7 @@ const AuthPage = () => {
             size="lg" 
             variant="outline" 
             className="w-full h-14 text-lg font-semibold border-2 border-white text-white hover:bg-white hover:text-black rounded-full bg-transparent"
+            onClick={() => setShowSignUp(true)}
           >
             Create Account
           </Button>
