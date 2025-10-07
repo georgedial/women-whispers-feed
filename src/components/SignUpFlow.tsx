@@ -1,9 +1,32 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Home, MessageCircle, Compass, Heart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+
+const FEATURE_CARDS = [
+  {
+    icon: Home,
+    title: "Home",
+    description: "Your personalized health hub with curated articles, trending topics, and daily wellness tips tailored to your interests."
+  },
+  {
+    icon: MessageCircle,
+    title: "Chat",
+    description: "Get instant answers to your health questions with AI-powered assistance available 24/7 for guidance and support."
+  },
+  {
+    icon: Compass,
+    title: "Discovery",
+    description: "Explore articles, resources, and expert insights across various health topics to expand your wellness knowledge."
+  },
+  {
+    icon: Heart,
+    title: "Care",
+    description: "Track your health journey, manage symptoms, and access personalized care plans designed for your unique needs."
+  }
+];
 
 const HEALTH_TOPICS = [
   "Maternal Health",
@@ -28,7 +51,8 @@ const SignUpFlow = () => {
     interests: [] as string[],
   });
 
-  const totalSteps = 4;
+  const totalSteps = 5;
+  const [onboardingIndex, setOnboardingIndex] = useState(0);
 
   const updateField = (field: string, value: string | string[]) => {
     setFormData({ ...formData, [field]: value });
@@ -57,7 +81,9 @@ const SignUpFlow = () => {
   };
 
   const handleNext = () => {
-    if (currentStep < totalSteps - 1) {
+    if (currentStep === 4 && onboardingIndex < FEATURE_CARDS.length - 1) {
+      setOnboardingIndex(onboardingIndex + 1);
+    } else if (currentStep < totalSteps - 1) {
       setCurrentStep(currentStep + 1);
     } else {
       handleSubmit();
@@ -144,7 +170,7 @@ const SignUpFlow = () => {
         return (
           <div className="space-y-6">
             <h2 className="text-3xl font-bold text-foreground">
-              What information and assistance are you looking for?
+              What are you looking for information and assistance with?
             </h2>
             <p className="text-muted-foreground text-sm">Select all that apply</p>
             <div className="flex flex-wrap gap-2">
@@ -160,6 +186,35 @@ const SignUpFlow = () => {
                 >
                   {topic}
                 </button>
+              ))}
+            </div>
+          </div>
+        );
+
+      case 4:
+        const feature = FEATURE_CARDS[onboardingIndex];
+        const FeatureIcon = feature.icon;
+        return (
+          <div className="flex-1 flex flex-col items-center justify-center text-center space-y-8 px-4">
+            <div className="bg-card rounded-3xl p-8 max-w-sm w-full shadow-lg space-y-6">
+              <div className="w-24 h-24 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
+                <FeatureIcon className="w-12 h-12 text-primary" strokeWidth={1.5} />
+              </div>
+              <div className="space-y-3">
+                <h2 className="text-3xl font-bold text-foreground">{feature.title}</h2>
+                <p className="text-muted-foreground text-base leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              {FEATURE_CARDS.map((_, idx) => (
+                <div
+                  key={idx}
+                  className={`h-2 rounded-full transition-all ${
+                    idx === onboardingIndex ? "w-8 bg-primary" : "w-2 bg-secondary"
+                  }`}
+                />
               ))}
             </div>
           </div>
@@ -199,14 +254,30 @@ const SignUpFlow = () => {
       </div>
 
       {/* Next Button */}
-      <div className="p-6 pt-0">
+      <div className="p-6 pt-0 space-y-3">
+        {currentStep === 4 && (
+          <Button
+            onClick={handleSubmit}
+            variant="ghost"
+            size="lg"
+            className="w-full text-base font-medium"
+          >
+            Not Now
+          </Button>
+        )}
         <Button
           onClick={handleNext}
-          disabled={!canProceed()}
+          disabled={currentStep !== 4 && !canProceed()}
           size="lg"
           className="w-full h-14 rounded-full text-base font-semibold"
         >
-          {currentStep === totalSteps - 1 ? "Create Account" : "Next"}
+          {currentStep === 4
+            ? onboardingIndex === FEATURE_CARDS.length - 1
+              ? "Get Started"
+              : "Next"
+            : currentStep === totalSteps - 2
+            ? "Continue"
+            : "Next"}
           <ArrowRight className="h-5 w-5 ml-2" />
         </Button>
       </div>
