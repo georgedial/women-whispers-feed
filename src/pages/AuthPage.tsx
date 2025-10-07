@@ -4,12 +4,18 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import backgroundImage from "@/assets/diane-health-background.jpg";
 import SignUpFlow from "@/components/SignUpFlow";
+import SignInFlow from "@/components/SignInFlow";
 
 const AuthPage = () => {
   const [showSignUp, setShowSignUp] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(false);
 
   if (showSignUp) {
     return <SignUpFlow />;
+  }
+
+  if (showSignIn) {
+    return <SignInFlow onBack={() => setShowSignIn(false)} />;
   }
 
   return (
@@ -49,6 +55,7 @@ const AuthPage = () => {
           <Button 
             size="lg" 
             className="w-full h-14 text-lg font-semibold bg-white text-black hover:bg-white/90 rounded-full"
+            onClick={() => setShowSignIn(true)}
           >
             Sign In
           </Button>
